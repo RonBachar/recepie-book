@@ -1,13 +1,19 @@
 <div class="row">
     <div class="col-md-5">
-        <app-recepie-list 
-        [recepies]="newRecepies" 
-        (selectedRecepie)="recepieToDisplay($event)"
+        <!-- Listen to selectedRecepie the custom EVENT WE CREATED IN recepie-list COMPONENT (CHILD) 
+        AND STORE THE selectedRecepie
+        -->
+        <app-recepie-list
+            (recepieWasSelected)="selectedRecepie = $event"
         ></app-recepie-list>
     </div>
     <div class="col-md-7">
-        <app-recepie-detail 
-        
+        <app-recepie-detail
+            *ngIf="selectedRecepie; else infoText"
+            [recepie]="selectedRecepie"
         ></app-recepie-detail>
+        <ng-template #infoText>
+            <p>Please Select Recepie</p>
+        </ng-template>
     </div>
 </div>

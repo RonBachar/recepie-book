@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Recepie } from '../recepie.model';
 
 @Component({
@@ -6,12 +6,33 @@ import { Recepie } from '../recepie.model';
     templateUrl: './recepie-list.component.html',
     styleUrl: './recepie-list.component.css',
 })
-export class RecepieListComponent {
-    @Input() recepies: Recepie[];
-    @Output() selectedRecepie =  new  EventEmitter<Recepie>()
+export class RecepieListComponent implements OnInit {
 
-    onDisplayRecepie(recepie: Recepie) {
-        console.log(recepie);
-        this.selectedRecepie.emit(recepie)
+    @Output() recepieWasSelected = new EventEmitter<Recepie>();
+
+    recepies: Recepie[] = [
+        new Recepie(
+            'Ramen',
+            'Ramen recepie description',
+            'https://japan.recipetineats.com/wp-content/uploads/2022/01/Home-made_Ramen_Broth_7171sq.jpg'
+        ),
+        new Recepie(
+            'Roast Chicken',
+            'Roast Chicken description',
+            'https://assets.epicurious.com/photos/62f16ed5fe4be95d5a460eed/1:1/pass/undefined'
+        ),
+    ];
+
+       
+    ngOnInit(): void {
+        
     }
+
+    onRecepieSelected(recepie: Recepie) {
+        // console.log('recepieSelected: ' + recepie);
+        this.recepieWasSelected.emit(recepie);
+    }
+
+
+
 }

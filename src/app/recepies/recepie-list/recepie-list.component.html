@@ -6,10 +6,14 @@
 <hr />
 <div class="row">
     <div class="col-xs-12">
+        <!-- WE ALREADY GOT THE INFORMATION 
+        WHICH RECEPIE IT WILL BE BECAUSE WE HAVE IT HERE FROM THE NG FOR LOOP 
+        IT'S CLEAR WHICH ELEMENT IT IS, RECEPIE ELEMENT IS THE RECEPIE WHICH WE DID SELECT
+        -->
         <app-recepie-item
-            *ngFor="let recepieEl of recepies"
-            [recepie]="recepieEl"
-            (displayRecepie)="onDisplayRecepie($event)"
+         *ngFor="let recepieEl of recepies"
+          [recepie]="recepieEl"
+          (recepieSelected)="onRecepieSelected(recepieEl)"
         ></app-recepie-item>
     </div>
 </div>

@@ -14,3 +14,4 @@ export class Recepie {
     this.imagePath = imagePath;
   }
 }
+

@@ -5,7 +5,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
     templateUrl: './header.component.html',
     styleUrl: './header.component.css',
 })
-export class HeaderComponent {
+export class HeaderComponent { 
     @Output() featureSelected = new EventEmitter<string>();
 
     navigateTo(feature: string) {

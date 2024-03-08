@@ -7,22 +7,11 @@ import { Recepie } from './recepie.model';
     styleUrl: './recepies.component.css',
 })
 export class RecepiesComponent {
-    displayRecepie: string = '';
+    selectedRecepie: string = '';
 
     @Output() newRecepies: Recepie[] = [
-        new Recepie(
-            'Ramen',
-            'recepie description',
-            'https://japan.recipetineats.com/wp-content/uploads/2022/01/Home-made_Ramen_Broth_7171sq.jpg'
-        ),
-        new Recepie(
-            'Ramen',
-            'recepie description',
-            'https://japan.recipetineats.com/wp-content/uploads/2022/01/Home-made_Ramen_Broth_7171sq.jpg'
-        ),
+
     ];
 
-    recepieToDisplay(recepie: Recepie) {
-        // console.log(recepie);
-    }
+
 }
