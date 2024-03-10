@@ -8,4 +8,9 @@ import { Recepie } from '../recepie.model';
 })
 export class RecepieDetailComponent {
     @Input() recepie: Recepie;
+    displayMenu: boolean = false;
+
+    toggleMenu(): void { // Added type annotation for the method
+        this.displayMenu = !this.displayMenu;
+    }
 }
