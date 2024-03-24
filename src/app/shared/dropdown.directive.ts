@@ -7,20 +7,21 @@ import { Directive, ElementRef, HostBinding, HostListener, Input, OnInit, Render
 export class DropdownDirective implements OnInit {
 
     @Input() defaultDisplay: string = 'none';
-    // @Input('appDropdownVisibility') display: string = 'blue';
+
+    @Input('appDropdownVisibility') displayOn : string = 'block';
 
     @HostBinding('style.display') display: string;
 
-    constructor(private elRef: ElementRef, private renderer: Renderer2) { }
+    constructor() { }
 
     ngOnInit() {
         this.display = this.defaultDisplay;
         // this.renderer.setStyle(this.elRef.nativeElement, 'background-color', 'blue');
     }
 
-    @HostListener('click') mouseclick(eventData: Event) {
+    @HostListener('mouseclick') mouseclick(eventData: Event) {
         // this.renderer.setStyle(this.elRef.nativeElement, 'background-color', 'blue');
-        this.display = this.defaultDisplay;
+        this.display = this.displayOn
     }
 
 
